@@ -19,7 +19,7 @@ class plgPCPPos_Cash extends JPlugin
 	function __construct(& $subject, $config) {
 		parent :: __construct($subject, $config);
 	}
-	
+
 	/**
 	 * Proceed to payment - some method do not have proceed to payment gateway like e.g. cash on delivery
 	 *
@@ -28,13 +28,13 @@ class plgPCPPos_Cash extends JPlugin
 	 *
 	 * @return  boolean  True
 	 */
-	
+
 	function PCPonDisplayPaymentPos(&$output, $t) {
-		
+
 		$total 			= $t['total'];
 		$autocomplete 	= $t['pos_input_autocomplete_output'];
 		$price = new PhocacartPrice();
-		
+
 		$s 	= array();
 		$s[] = 'function phChangeAmountTendered(typeValue) {';
 		$s[] = '	var phTotalAmount = jQuery("#phTotalAmount").val();';
@@ -53,77 +53,83 @@ class plgPCPPos_Cash extends JPlugin
 
 	// 	Loaded BY AJAX, needs to be set inside body
 	//	JFactory::getDocument()->addScriptDeclaration(implode("\n", $s));
-		
+
 		$totalAmount = 0;
 		if ($total[0]['brutto_currency'] !== 0) {
 			$totalAmount = $total[0]['brutto_currency'];
 		} else if ($total[0]['brutto'] !== 0) {
 			$totalAmount = $total[0]['brutto'];
 		}
-		
+
 		$o = array();
-		
+
 		$o[] = '<div class="row row-vac">';
 
 		$o[] = '<div class="row-item col-sm-3 col-md-3">';
 		$o[] = '</div>';
-		
-		
+
+
 		$o[] = '<div class="row-item col-sm-3 col-md-3">';
 		$o[] = '<div class="ph-pos-payment-item-txt">' . JText::_('COM_PHOCACART_AMOUNT_TENDERED').'</div>';
 		$o[] = '</div>';
-		
+
 		$o[] = '<div class="row-item col-sm-3 col-md-3">';
 		$o[] = '<div class="ph-right">';
-		
+
 		$o[] = '<input type="hidden" value="'.$totalAmount.'" name="phTotalAmount" id="phTotalAmount" />';
 		$o[] = '<input type="number" class="ph-pos-amount-tendered" value="" name="phAmountTendered" id="phAmountTendered" '.$autocomplete.' />';
 		$o[] = '</div>';
 		$o[] = '</div>';
-		
-		
+
+
 		$o[] = '<div class="row-item col-sm-3 col-md-3">';
 		$o[] = '</div>';
-		
+
 		$o[] = '</div>'; // end row
-		
-		
+
+
 		$o[] = '<div class="row row-vac">';
 
 		$o[] = '<div class="row-item col-sm-3 col-md-3">';
 		$o[] = '</div>';
-		
-		
+
+
 		$o[] = '<div class="row-item col-sm-3 col-md-3">';
 		$o[] = '<div class="ph-pos-payment-item-txt">' . JText::_('COM_PHOCACART_CHANGE') . '</div>';
 		$o[] = '</div>';
-		
+
 		$o[] = '<div class="row-item col-sm-3 col-md-3">';
 		$o[] = '<div class="ph-pos-amount-change ph-right" id="phAmountChange">'.$price->getPriceFormat(0).'</div>';
 		$o[] = '</div>';
-		
-		
+
+
 		$o[] = '<div class="row-item col-sm-3 col-md-3">';
 		$o[] = '</div>';
-		
+
 		$o[] = '</div>'; // end row
-		
-		
+
+
 		// Inline Javascript becasuse of combination of Plugin and AJAX
 		$o[] = '<script type="text/javascript">'.implode("\n", $s).'</script>';
-		
+
 		$output = implode("\n", $o);
 	}
-	
-	
-	function PCPbeforeSaveOrder(&$statusId) {
-			
-		// Status set by payment method in case of order (pending, confirmed, completed)
-		// In case of POS cash, it is always completed 
-		$statusId = 6;
-		
+
+
+	function PCPbeforeSaveOrder(&$statusId, $pid) {
+
+
+        // Status set by payment method in case of order (pending, confirmed, completed)
+        // In case of POS cash, it is always completed
+        $paymentTemp		= new PhocacartPayment();
+        $paymentOTemp 		= $paymentTemp->getPaymentMethod((int)$pid );
+        $paramsPaymentTemp	= $paymentOTemp->params;
+        $statusId		    = $paramsPaymentTemp->get('default_order_status', 6);
+
+		//$statusId = 6;
+
 		return true;
 	}
-	
+
 }
 ?>
