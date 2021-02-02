@@ -16,6 +16,9 @@ JLoader::registerPrefix('Phocacart', JPATH_ADMINISTRATOR . '/components/com_phoc
 
 class plgPCPPos_Cash extends JPlugin
 {
+	
+	protected $name 	= 'pos_cash';
+	
 	function __construct(& $subject, $config) {
 		parent :: __construct($subject, $config);
 	}
@@ -29,7 +32,11 @@ class plgPCPPos_Cash extends JPlugin
 	 * @return  boolean  True
 	 */
 
-	function PCPonDisplayPaymentPos(&$output, $t) {
+	function PCPonDisplayPaymentPos(&$output, $t, $eventData) {
+		
+		if (!isset($eventData['pluginname']) || isset($eventData['pluginname']) && $eventData['pluginname'] != $this->name) {
+			return false;
+		}
 
 		$total 			= $t['total'];
 		$autocomplete 	= $t['pos_input_autocomplete_output'];
@@ -116,7 +123,11 @@ class plgPCPPos_Cash extends JPlugin
 	}
 
 
-	function PCPbeforeSaveOrder(&$statusId, $pid) {
+	function PCPbeforeSaveOrder(&$statusId, $pid, $eventData) {
+		
+		if (!isset($eventData['pluginname']) || isset($eventData['pluginname']) && $eventData['pluginname'] != $this->name) {
+			return false;
+		}
 
 
         // Status set by payment method in case of order (pending, confirmed, completed)

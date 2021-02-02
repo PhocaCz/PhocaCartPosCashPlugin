@@ -2,7 +2,7 @@
 
 
 
-![Phoca Cart POS Cash Plugin](https://github.com/PhocaCz/PhocaCartPosCashPlugin/blob/master/pos_cash.png)
+![Phoca Cart POS Cash Plugin](https://github.com/PhocaCz/PhocaCartPosCashPlugin/blob/master/pos_cash.png?raw=true)
 
 # Phoca Cart POS Cash Plugin
 
@@ -56,7 +56,7 @@ Phoca Cart Payment - POS Cash Plugin - payment method for Phoca Cart component. 
 
 ## Version
 
-3.5.4
+3.5.5
 
 
 
