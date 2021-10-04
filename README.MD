@@ -60,7 +60,7 @@ Phoca Cart Payment - POS Cash Plugin - payment method for Phoca Cart component. 
 
 ## Version
 
-3.5.7
+3.5.8
 
 
 
