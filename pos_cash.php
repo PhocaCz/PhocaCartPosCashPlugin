@@ -32,7 +32,7 @@ class plgPCPPos_Cash extends JPlugin
 	 * @return  boolean  True
 	 */
 
-	function PCPonDisplayPaymentPos(&$output, $t, $eventData) {
+	function onPCPonDisplayPaymentPos(&$output, $t, $eventData) {
 		
 		if (!isset($eventData['pluginname']) || isset($eventData['pluginname']) && $eventData['pluginname'] != $this->name) {
 			return false;
@@ -123,7 +123,7 @@ class plgPCPPos_Cash extends JPlugin
 	}
 
 
-	function PCPbeforeSaveOrder(&$statusId, $pid, $eventData) {
+	function onPCPbeforeSaveOrder(&$statusId, $pid, $eventData) {
 		
 		if (!isset($eventData['pluginname']) || isset($eventData['pluginname']) && $eventData['pluginname'] != $this->name) {
 			return false;
