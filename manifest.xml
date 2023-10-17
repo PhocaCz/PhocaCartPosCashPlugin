@@ -1,3 +1,4 @@
+<?xml version="1.0" ?>
 <updates>
 	<update>
 		<name><![CDATA[ Phoca Cart POS Cash Plugin ]]></name>
@@ -25,19 +26,20 @@
 		<element>pos_cash</element>
 		<folder>pcp</folder>
 		<type>plugin</type>
-		<version>4.0.7</version>
-		<infourl title="Phoca Cart POS Cash Plugin 4.0.7">https://www.phoca.cz/</infourl>
+		<version>4.0.9</version>
+		<infourl title="Phoca Cart POS Cash Plugin 4.0.9">https://www.phoca.cz/</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaCartPosCashPlugin/releases/download/4.0.7/plg_pcp_pos_cash_v4.0.7.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaCartPosCashPlugin/releases/download/4.0.9/plg_pcp_pos_cash_v4.0.9.zip</downloadurl>
 		</downloads>
-		<sha512>f61c13126e7d18970b2015df2e6fe8b46f916443c68df189e7e864b5bfebfe40447747d47849d1afcbfa7e27fa88b3ebb06cc699341a585d1471054c020d6b0e</sha512>
+		<sha512>6bb8b0392360ef65f8b1e8faa6262e563bf5006b706d38452dec0f42b8d5ee520b916682d2c6176f57d0f08b4d0f533d1ff381c90e59af7e402e13a8c42f5fb9</sha512>
 		<tags>
 			<tag>stable</tag>
 		</tags>
 		<maintainer><![CDATA[ Phoca.cz ]]></maintainer>
 		<maintainerurl>https://www.phoca.cz/</maintainerurl>
 		<section>Updates</section>
-		<targetplatform name="joomla" version="4.[012]"/>
+		<targetplatform name="joomla" version="4\.*"/>
 		<client>site</client>
 	</update>
+
 </updates>

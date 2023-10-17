@@ -8,17 +8,19 @@
  */
 
 defined('_JEXEC') or die;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Plugin\CMSPlugin;
 jimport( 'joomla.plugin.plugin' );
 jimport( 'joomla.filesystem.file');
 jimport( 'joomla.html.parameter' );
 
 JLoader::registerPrefix('Phocacart', JPATH_ADMINISTRATOR . '/components/com_phocacart/libraries/phocacart');
 
-class plgPCPPos_Cash extends JPlugin
+class plgPCPPos_Cash extends CMSPlugin
 {
-	
+
 	protected $name 	= 'pos_cash';
-	
+
 	function __construct(& $subject, $config) {
 		parent :: __construct($subject, $config);
 	}
@@ -33,7 +35,7 @@ class plgPCPPos_Cash extends JPlugin
 	 */
 
 	function onPCPonDisplayPaymentPos(&$output, $t, $eventData) {
-		
+
 		if (!isset($eventData['pluginname']) || isset($eventData['pluginname']) && $eventData['pluginname'] != $this->name) {
 			return false;
 		}
@@ -59,7 +61,7 @@ class plgPCPPos_Cash extends JPlugin
 		$s[] = '})';
 
 	// 	Loaded BY AJAX, needs to be set inside body
-	//	JFactory::getDocument()->addScriptDeclaration(implode("\n", $s));
+	//	Factory::getDocument()->addScriptDeclaration(implode("\n", $s));
 
 		$totalAmount = 0;
 		if ($total[0]['brutto_currency'] !== 0) {
@@ -77,7 +79,7 @@ class plgPCPPos_Cash extends JPlugin
 
 
 		$o[] = '<div class="row-item col-sm-3 col-md-3">';
-		$o[] = '<div class="ph-pos-payment-item-txt">' . JText::_('COM_PHOCACART_AMOUNT_TENDERED').'</div>';
+		$o[] = '<div class="ph-pos-payment-item-txt">' . Text::_('COM_PHOCACART_AMOUNT_TENDERED').'</div>';
 		$o[] = '</div>';
 
 		$o[] = '<div class="row-item col-sm-3 col-md-3">';
@@ -102,7 +104,7 @@ class plgPCPPos_Cash extends JPlugin
 
 
 		$o[] = '<div class="row-item col-sm-3 col-md-3">';
-		$o[] = '<div class="ph-pos-payment-item-txt">' . JText::_('COM_PHOCACART_CHANGE') . '</div>';
+		$o[] = '<div class="ph-pos-payment-item-txt">' . Text::_('COM_PHOCACART_CHANGE') . '</div>';
 		$o[] = '</div>';
 
 		$o[] = '<div class="row-item col-sm-3 col-md-3">';
@@ -124,7 +126,7 @@ class plgPCPPos_Cash extends JPlugin
 
 
 	function onPCPbeforeSaveOrder(&$statusId, $pid, $eventData) {
-		
+
 		if (!isset($eventData['pluginname']) || isset($eventData['pluginname']) && $eventData['pluginname'] != $this->name) {
 			return false;
 		}
