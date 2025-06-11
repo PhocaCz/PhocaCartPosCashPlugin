@@ -26,12 +26,11 @@
 		<element>pos_cash</element>
 		<folder>pcp</folder>
 		<type>plugin</type>
-		<version>4.0.9</version>
-		<infourl title="Phoca Cart POS Cash Plugin 4.0.9">https://www.phoca.cz/</infourl>
+		<version>4.0.11</version>
+		<infourl title="Phoca Cart POS Cash Plugin 4.0.11">https://www.phoca.cz/</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaCartPosCashPlugin/releases/download/4.0.9/plg_pcp_pos_cash_v4.0.9.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaCartPosCashPlugin/releases/download/4.0.11/plg_pcp_pos_cash_v4.0.11.zip</downloadurl>
 		</downloads>
-		<sha512>6bb8b0392360ef65f8b1e8faa6262e563bf5006b706d38452dec0f42b8d5ee520b916682d2c6176f57d0f08b4d0f533d1ff381c90e59af7e402e13a8c42f5fb9</sha512>
 		<tags>
 			<tag>stable</tag>
 		</tags>
@@ -41,5 +40,25 @@
 		<targetplatform name="joomla" version="4\.*"/>
 		<client>site</client>
 	</update>
-
+	<update>
+		<name><![CDATA[ Phoca Cart POS Cash Plugin ]]></name>
+		<description><![CDATA[ Phoca Cart Payment - POS Cash Plugin - payment method for Phoca Cart component. This plugin is included in core Phoca Cart package. ]]></description>
+		<element>pos_cash</element>
+		<folder>pcp</folder>
+		<type>plugin</type>
+		<version>5.1.1</version>
+		<infourl title="Phoca Cart POS Cash Plugin 5.1.1">https://www.phoca.cz/</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaCartPosCashPlugin/releases/download/5.1.1/plg_pcp_pos_cash_v5.1.1.zip</downloadurl>
+		</downloads>
+		<sha512>93bab1b059601ef0ab2f7b0090c6ffe6e53e03ab6e0351eefe6ae1a5ce500f2c7de8953c88d65d1e609e216d3962013556b9271ab659cd51c877848d5d76f9ed</sha512>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer><![CDATA[ Phoca.cz ]]></maintainer>
+		<maintainerurl>https://www.phoca.cz/</maintainerurl>
+		<section>Updates</section>
+		<targetplatform name="joomla" version="5\.*"/>
+		<client>site</client>
+	</update>
 </updates>

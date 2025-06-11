@@ -2,12 +2,12 @@
 <extension type="plugin" group="pcp" method="upgrade" version="5.0">
 	<name>plg_pcp_pos_cash</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>17/10/2023</creationDate>
+	<creationDate>11/06/2025</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>5.0.0Beta</version>
+	<version>5.1.1</version>
 	<description>PLG_PCP_POS_CASH_DESCRIPTION</description>
 	<projectName>PhocaCartPosCashPlugin</projectName>
 
