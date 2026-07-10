@@ -20,6 +20,7 @@ class plgPCPPos_Cash extends CMSPlugin
 {
 
 	protected $name 	= 'pos_cash';
+	protected $autoloadLanguage = true;
 
 	function __construct(& $subject, $config) {
 		parent :: __construct($subject, $config);
